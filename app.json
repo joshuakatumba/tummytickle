@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "57c7b856-5f8d-42d9-a160-291b8c6d7a6e"
+      }
+    },
+    "android": {
+      "package": "com.joshuakatumba.bakersbooks"
+    }
+  }
+}

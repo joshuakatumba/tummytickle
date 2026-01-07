@@ -1,6 +1,8 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
+:root {
   --font-display: 'Work Sans', sans-serif;
   --color-primary: #da7707;
   --color-background-light: #f8f7f5;

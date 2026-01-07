@@ -17,6 +17,8 @@ import {
   Wallet,
   Pencil
 } from 'lucide-react';
+import logo from './assets/logo.png';
+import MonthPicker from './components/MonthPicker';
 
 // --- Interfaces ---
 
@@ -81,6 +83,7 @@ export default function App() {
   // User Profile State
   const [userName, setUserName] = useState('John Doe');
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
   const [tempName, setTempName] = useState('');
 
   const handleProfileClick = () => {
@@ -345,24 +348,28 @@ export default function App() {
       {/* Top Navigation */}
       <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e6e1db] bg-white px-4 py-3 lg:px-10 shadow-sm sticky top-0 z-50">
         <div className="flex items-center gap-2 sm:gap-4 text-[#181511]">
-          <div className="size-8 sm:size-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary">
-            <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6" />
+          <div className="size-10 sm:size-12 flex items-center justify-center rounded-lg bg-primary/10 text-primary overflow-hidden">
+            <img src={logo} alt="Tummy Ticklers Logo" className="w-full h-full object-cover" />
           </div>
-          <h2 className="text-[#181511] text-lg sm:text-xl font-bold leading-tight tracking-[-0.015em]">Baker's Books</h2>
+          <h2 className="text-[#181511] text-lg sm:text-xl font-bold leading-tight tracking-[-0.015em]">Tummy Ticklers</h2>
         </div>
         <div className="flex items-center gap-2 sm:gap-4">
           <div className="relative">
-            <input
-              type="month"
-              value={filterMonth}
-              onChange={(e) => setFilterMonth(e.target.value)}
-              className="absolute opacity-0 inset-0 w-full h-full cursor-pointer z-10"
-            />
-            <button className="flex cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 sm:h-10 bg-[#f5f2f0] hover:bg-[#e6e1db] transition-colors text-[#181511] gap-2 text-xs sm:text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-3 sm:px-4">
+            <button
+              onClick={() => setIsDatePickerOpen(!isDatePickerOpen)}
+              className="flex cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 sm:h-10 bg-[#f5f2f0] hover:bg-[#e6e1db] transition-colors text-[#181511] gap-2 text-xs sm:text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-3 sm:px-4"
+            >
               <Calendar className="w-4 h-4 sm:w-5 sm:h-5 hidden xxs:block" />
               <span>{new Date(filterMonth).toLocaleDateString(undefined, { month: 'long', year: 'numeric' })}</span>
               <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4" />
             </button>
+            {isDatePickerOpen && (
+              <MonthPicker
+                selectedMonth={filterMonth}
+                onChange={setFilterMonth}
+                onClose={() => setIsDatePickerOpen(false)}
+              />
+            )}
           </div>
           <div className="relative">
             <button
@@ -631,7 +638,7 @@ export default function App() {
                         <th className="px-4 py-3 font-medium">Category</th>
                         <th className="px-4 py-3 font-medium text-right">Date</th>
                         <th className="px-4 py-3 font-medium text-right">Amount</th>
-                        <th className="px-4 py-3 font-medium w-10"></th>
+                        <th className="px-4 py-3 font-medium text-right">Actions</th>
                       </tr>
                     </thead>
                     <tbody className="text-sm">
@@ -652,7 +659,7 @@ export default function App() {
                           </td>
                           <td className="px-4 py-4 text-[#5e5040]">{t.category}</td>
                           <td className="px-4 py-4 text-right text-[#5e5040]">{new Date(t.date).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}</td>
-                          <td className={`px-4 py-4 text-right font-bold ${t.type === 'income' ? 'text-emerald-600' : 'text-[#181511]'}`}>
+                          <td className={`px-4 py-4 text-right font-bold ${t.type === 'income' ? 'text-emerald-600' : 'text-rose-600'}`}>
                             {t.type === 'income' ? '+' : ''}{formatCurrency(t.amount)}
                           </td>
                           <td className="px-4 py-4 text-right">

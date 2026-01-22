@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
+import { Work_Sans } from "next/font/google";
 import "./globals.css";
+
+const workSans = Work_Sans({
+    subsets: ["latin"],
+    variable: "--font-work-sans",
+    display: "swap",
+});
 
 export const metadata: Metadata = {
     title: "Tummy Ticklers - Bakery Accounting",
@@ -13,13 +20,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <head>
-                <link rel="icon" type="image/png" href="/logo.png" />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-            </head>
-            <body>{children}</body>
+            <body className={`${workSans.variable} font-sans`}>{children}</body>
         </html>
     );
 }

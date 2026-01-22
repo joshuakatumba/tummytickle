@@ -411,7 +411,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="flex flex-1 flex-col gap-2 rounded-xl p-6 bg-white border border-[#e6e1db] shadow-sm hover:shadow-md transition-shadow">
                         <div className="flex items-center justify-between">
-                            <p className="text-[#8c775f] text-sm font-medium leading-normal uppercase tracking-wider">Today's Income</p>
+                            <p className="text-[#8c775f] text-sm font-medium leading-normal uppercase tracking-wider">Today&apos;s Income</p>
                             <div className="text-emerald-600 bg-emerald-50 p-1 rounded-full"><TrendingUp className="w-5 h-5" /></div>
                         </div>
                         <p className="text-[#181511] tracking-light text-3xl font-bold leading-tight">{formatCurrency(todayStats.income)}</p>
@@ -420,7 +420,7 @@ export default function Home() {
 
                     <div className="flex flex-1 flex-col gap-2 rounded-xl p-6 bg-white border border-[#e6e1db] shadow-sm hover:shadow-md transition-shadow">
                         <div className="flex items-center justify-between">
-                            <p className="text-[#8c775f] text-sm font-medium leading-normal uppercase tracking-wider">Today's Expenses</p>
+                            <p className="text-[#8c775f] text-sm font-medium leading-normal uppercase tracking-wider">Today&apos;s Expenses</p>
                             <div className="text-rose-600 bg-rose-50 p-1 rounded-full"><TrendingDown className="w-5 h-5" /></div>
                         </div>
                         <p className="text-[#181511] tracking-light text-3xl font-bold leading-tight">{formatCurrency(todayStats.expense)}</p>
@@ -430,7 +430,7 @@ export default function Home() {
                     <div className={`flex flex-1 flex-col gap-2 rounded-xl p-6 text-white shadow-md relative overflow-hidden group ${todayStats.profit >= 0 ? 'bg-emerald-600' : 'bg-rose-600'}`}>
                         <div className="absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
                         <div className="flex items-center justify-between relative z-10">
-                            <p className="text-white/80 text-sm font-medium leading-normal uppercase tracking-wider">{todayStats.profit >= 0 ? "Today's Net Profit" : "Today's Net Loss"}</p>
+                            <p className="text-white/80 text-sm font-medium leading-normal uppercase tracking-wider">{todayStats.profit >= 0 ? "Today&apos;s Net Profit" : "Today&apos;s Net Loss"}</p>
                             <div className="text-white bg-white/20 p-1 rounded-full"><Wallet className="w-5 h-5" /></div>
                         </div>
                         <p className="text-white tracking-light text-3xl font-bold leading-tight relative z-10">{formatCurrency(Math.abs(todayStats.profit))}</p>

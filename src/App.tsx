@@ -349,7 +349,7 @@ export default function App() {
       <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e6e1db] bg-white px-4 py-3 lg:px-10 shadow-sm sticky top-0 z-50">
         <div className="flex items-center gap-2 sm:gap-4 text-[#181511]">
           <div className="size-10 sm:size-12 flex items-center justify-center rounded-lg bg-primary/10 text-primary overflow-hidden">
-            <img src={logo} alt="Tummy Ticklers Logo" className="w-full h-full object-cover" />
+            <img src={logo.src} alt="Tummy Ticklers Logo" className="w-full h-full object-cover" />
           </div>
           <h2 className="text-[#181511] text-lg sm:text-xl font-bold leading-tight tracking-[-0.015em]">Tummy Ticklers</h2>
         </div>
